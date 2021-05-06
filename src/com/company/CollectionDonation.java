@@ -30,7 +30,9 @@ public class CollectionDonation implements BasicOperations{
     }
 
     @Override
-    public void toList(Donation donation) {
-        listDonations.add(donation);
+    public void toList() {
+        for (Donation x: listDonations) {
+           System.out.println(x.toString());
+        }
     }
 }

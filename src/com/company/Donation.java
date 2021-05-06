@@ -34,7 +34,6 @@ public class Donation{
     }
 
     //Equal and hashcode
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -47,4 +46,11 @@ public class Donation{
     public int hashCode() {
         return Objects.hash(amount, partnerNumber);
     }
+
+    //Metodos
+    @Override
+    public String toString(){
+        return "Donaciones: \nMonto: " + this.amount + " | Numero de socio: " + partnerNumber;
+    }
+
 }

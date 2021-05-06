@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Partner{
     //Atributos
@@ -10,7 +11,8 @@ public class Partner{
     private int age;
     private Thematic thematic;
     private List<String> author= new ArrayList<>();
-    private static int partnerNumber= 0;
+    private int partnerNumber;
+    private static int partnerNumberNext= 1;
 
     //Constructores
     public Partner(){
@@ -22,7 +24,8 @@ public class Partner{
         this.age= age;
         this.thematic= thematic;
         this.author= author;
-        partnerNumber++;
+        this.partnerNumber= partnerNumberNext;
+        partnerNumberNext++;
     }
 
     //Getter and Setter
@@ -66,11 +69,31 @@ public class Partner{
         this.author = author;
     }
 
-    public static int getPartnerNumber() {
+    public int getPartnerNumber() {
         return partnerNumber;
     }
 
-    public static void setPartnerNumber(int partnerNumber) {
-        Partner.partnerNumber = partnerNumber;
+    public void setPartnerNumber(int partnerNumber) {
+        this.partnerNumber = partnerNumber;
+    }
+
+    //Equals and hash code
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Partner partner = (Partner) o;
+        return partnerNumber == partner.partnerNumber;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(partnerNumber);
+    }
+
+    @Override
+    public String toString(){
+        return "Socio " + partnerNumber + "\nNombre: " + this.name + " | Genero: " + this.gender + " | Edad: " + this.age
+                + " | Tematica: " + this.thematic + "\nAutores: " + this.author;
     }
 }
