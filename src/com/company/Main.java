@@ -35,5 +35,9 @@ public class Main {
         listPartner.add(partner3);
 
         listPartner.toList();
+
+        Donation donation3= new Donation(35, partner1.getPartnerNumber());
+        listDonations.add(donation3);
+        listDonations.toList();
     }
 }
